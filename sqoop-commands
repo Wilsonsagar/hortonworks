@@ -25,11 +25,12 @@ sqoop eval \
 -- Reference: http://www.hadoop.com/content/hadoop/en/developers/home/developer-admin-resources/get-started-with-hadoop-tutorial/exercise-1.html
 
 sqoop import-all-tables \
-  --connect "jdbc:mysql://cdh54itversity-mn0.southeastasia.cloudapp.azure.com:3306/retail_db" \
-  --username retail_db \
-  --password itversity \
-  --warehouse-dir /user/itversity/dgadiraju/import-all-tables \
-  --driver com.mysql.jdbc.Driver
+  --connect "jdbc:mysql://sandbox.hortonworks.com:3306/retail_db" \
+  --username=retail_db \
+  --password=hadoop \
+  --as-avrodatafile \
+  --warehouse-dir /wilson/data/sqoop-import-all-tables 
+  
 
 sqoop import-all-tables \
   -m 12 \
@@ -99,14 +100,14 @@ hadoop fs -rm -R /apps/hive/warehouse/customers
 sqoop import-all-tables \
   --num-mappers 1 \
   --connect "jdbc:mysql://sandbox.hortonworks.com:3306/retail_db" \
-  --username=retail_dba \
+  --username=retail_db \
   --password=hadoop \
   --hive-import \
   --hive-overwrite \
   --create-hive-table \
   --compress \
   --compression-codec org.apache.hadoop.io.compress.SnappyCodec \
-  --outdir java_files
+
 
 sudo -u hdfs hadoop fs -mkdir /user/root/retail_stage
 sudo -u hdfs hadoop fs -chmod +rw /user/root/retail_stage
