@@ -1,16 +1,16 @@
 sqoop list-databases \
   --connect "jdbc:mysql://sandbox.hortonworks.com:3306" \
-  --username retail_dba \
+  --username retail_db \
   --password hadoop
 
 sqoop list-tables \
   --connect "jdbc:mysql://sandbox.hortonworks.com:3306/retail_db" \
-  --username retail_dba \
+  --username retail_db \
   --password hadoop
 
 sqoop import \
   --connect "jdbc:mysql://hiveserver:3306/retail_db" \
-  --username=retail_dba \
+  --username=retail_db \
   --password=itversity \
   --table departments \
   --as-textfile \
@@ -18,7 +18,7 @@ sqoop import \
   
 sqoop eval \
   --connect "jdbc:mysql://sandbox.hortonworks.com:3306/retail_db" \
-  --username retail_dba \
+  --username retail_db \
   --password hadoop \
   --query "select count(1) from order_items"
 
@@ -26,7 +26,7 @@ sqoop eval \
 
 sqoop import-all-tables \
   --connect "jdbc:mysql://cdh54itversity-mn0.southeastasia.cloudapp.azure.com:3306/retail_db" \
-  --username retail_dba \
+  --username retail_db \
   --password itversity \
   --warehouse-dir /user/itversity/dgadiraju/import-all-tables \
   --driver com.mysql.jdbc.Driver
@@ -34,7 +34,7 @@ sqoop import-all-tables \
 sqoop import-all-tables \
   -m 12 \
   --connect "jdbc:mysql://sandbox.hortonworks.com:3306/retail_db" \
-  --username=retail_dba \
+  --username=retail_db \
   --password=hadoop \
   --as-avrodatafile \
   --warehouse-dir=/apps/hive/warehouse/retail_stage.db
@@ -42,7 +42,7 @@ sqoop import-all-tables \
 --Default
 sqoop import \
   --connect "jdbc:mysql://sandbox.hortonworks.com:3306/retail_db" \
-  --username=retail_dba \
+  --username=retail_db \
   --password=hadoop \
   --table departments \
   --as-textfile \
@@ -50,7 +50,7 @@ sqoop import \
 
 sqoop import \
   --connect "jdbc:mysql://sandbox.hortonworks.com:3306/retail_db" \
-  --username=retail_dba \
+  --username=retail_db \
   --password=hadoop \
   --table departments \
   --as-sequencefile \
@@ -58,7 +58,7 @@ sqoop import \
 
 sqoop import \
   --connect "jdbc:mysql://sandbox.hortonworks.com:3306/retail_db" \
-  --username=retail_dba \
+  --username=retail_db \
   --password=hadoop \
   --table departments \
   --as-avrodatafile \
