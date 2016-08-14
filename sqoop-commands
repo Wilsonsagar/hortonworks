@@ -108,6 +108,15 @@ sqoop import-all-tables \
   --compress \
   --compression-codec org.apache.hadoop.io.compress.SnappyCodec \
 
+sqoop import-all-tables  \
+--num-mappers 1   \
+--connect "jdbc:mysql://sandbox.hortonworks.com:3306/retail_db"   \
+--username=retail_db   \
+--password=hadoop   \
+--hive-import   \
+--hive-overwrite  \
+--create-hive-table   \
+--hive-database sqoop_import
 
 sudo -u hdfs hadoop fs -mkdir /user/root/retail_stage
 sudo -u hdfs hadoop fs -chmod +rw /user/root/retail_stage
