@@ -1,0 +1,4 @@
+mysql -u root
+
+# to get the sample tables to mysql
+wget https://raw.githubusercontent.com/dgadiraju/code/master/hadoop/edw/database/retail_db.sql
