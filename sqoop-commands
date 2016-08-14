@@ -9,12 +9,12 @@ sqoop list-tables \
   --password hadoop
 
 sqoop import \
-  --connect "jdbc:mysql://hiveserver:3306/retail_db" \
+  --connect "jdbc:mysql://sandbox.hortonworks.com:3306/retail_db" \
   --username=retail_db \
-  --password=itversity \
+  --password=hadoop \
   --table departments \
   --as-textfile \
-  --target-dir=/user/root/departments
+  --target-dir=/wilson/data/departments
   
 sqoop eval \
   --connect "jdbc:mysql://sandbox.hortonworks.com:3306/retail_db" \
