@@ -1,0 +1,32 @@
+# Before you start practising flume , we need to check flume installation in our machine.
+# check flume version 
+flume-ng version
+
+#once you get the flume version, try running below script for Given a Flume configuration file, start a Flume agent.
+
+# template of script - flume-ng agent -n $agent_name -c conf -f conf/flume-conf.properties.template
+
+flume-ng agent -n a1 -f example.conf
+
+#example.conf contains
+# Name the components on this agent
+a1.sources = r1
+a1.sinks = k1
+a1.channels = c1
+
+# Describe/configure the source
+a1.sources.r1.type = netcat
+a1.sources.r1.bind = localhost
+a1.sources.r1.port = 44444
+
+# Describe the sink
+a1.sinks.k1.type = logger
+
+# Use a channel which buffers events in memory
+a1.channels.c1.type = memory
+a1.channels.c1.capacity = 1000
+a1.channels.c1.transactionCapacity = 100
+
+# Bind the source and sink to the channel
+a1.sources.r1.channels = c1
+a1.sinks.k1.channel = c1
