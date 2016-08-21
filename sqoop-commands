@@ -1,3 +1,13 @@
+## notes 
+By default the sqoop uses 4 mappers where it splits the primary key into 4 boundary conditions 
+and inturn it generates 4 part files 
+
+when there is no primary key in SQL table - Two options to solve this problem
+1) use number of mappers as 1 where it does not do boundary conditions or
+2) enter the column in split-by 
+
+
+
 sqoop list-databases \
   --connect "jdbc:mysql://sandbox.hortonworks.com:3306" \
   --username retail_db \
