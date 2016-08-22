@@ -9,6 +9,10 @@ when there is no primary key in SQL table - Two options to solve this problem
 Hive - import 
 If you not provide hive-overwrite than the records get appended in hive
 
+Incremental - import
+append - when the records are updated randomly than use this append in --incremental
+last-modified - when the records are updated daily or monthly than use this method in --incremental
+
 
 
 sqoop list-databases \
