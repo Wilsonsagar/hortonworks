@@ -6,6 +6,9 @@ when there is no primary key in SQL table - Two options to solve this problem
 1) use number of mappers as 1 where it does not do boundary conditions or
 2) enter the column in split-by 
 
+Hive - import 
+If you not provide hive-overwrite than the records get appended in hive
+
 
 
 sqoop list-databases \
