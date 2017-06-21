@@ -403,3 +403,5 @@ hadoop fs -mv /user/root/sqoop_merge/departments_stage /user/root/sqoop_merge/de
 hadoop fs -cat /user/root/sqoop_merge/departments/part*
 
 --Merge process ends
+
+sqoop list-tables   --connect "jdbc:mysql://ip-172-31-13-154/retail_db"   --username sqoopuser   --password NHkkP876rp
