@@ -13,7 +13,8 @@ Incremental - import
 append - when the records are updated randomly than use this append in --incremental
 last-modified - when the records are updated daily or monthly than use this method in --incremental
 
-
+The option --autoreset-to-one-mapper is typically used with the import-all-tables tool to 
+automatically handle tables without a primary key in a schema
 
 sqoop list-databases \
   --connect "jdbc:mysql://sandbox.hortonworks.com:3306" \
@@ -32,6 +33,7 @@ sqoop import \
   --table departments \
   --as-textfile \
   --target-dir=/wilson/data/departments
+  --delete-target-dir
   
 sqoop eval \
   --connect "jdbc:mysql://sandbox.hortonworks.com:3306/retail_db" \
